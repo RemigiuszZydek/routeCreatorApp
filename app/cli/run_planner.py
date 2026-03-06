@@ -2,6 +2,7 @@ import json
 
 from app.models.vehicle import Vehicle
 from app.models.order import Order
+from app.services.planner_service import PlannerService
 
 def load_vehicles():
     with open("data/vehicles.json") as f:
@@ -20,12 +21,23 @@ def main():
     vehicles = load_vehicles()
     orders = load_orders()
 
-    print("VEHICLES")
-    print(vehicles)
+    planner = PlannerService()
 
-    print()
-    print("ORDERS")
-    print(orders)
+    routes = planner.plan(vehicles,orders)
+
+    for route in routes:
+
+        print()
+        print("Vehicle:", route.vehicle_id)
+
+        for i, trip in enumerate(route.trips):
+
+            print(f"  Trip {i+1}")
+
+            for stop in trip.stops:
+                print("     Stop:", stop.address)
+
+            print("     Volume:", trip.total_volume)
 
 
 if __name__ == "__main__":
