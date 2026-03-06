@@ -1,0 +1,14 @@
+[
+	{
+		"id": "o1",
+		"address": "Katowice ul. Mickiewicza 1",
+		"bags": 10,
+		"bag_volume_m3": 0.1
+	},
+	{
+		"id": "o2",
+		"address": "Katowice ul. Słowackiego 5",
+		"bags": 5,
+		"bag_volume_m3": 0.1
+	}
+]
