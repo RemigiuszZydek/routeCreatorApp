@@ -1,9 +1,12 @@
-from dataclasses import dataclass
+from sqlalchemy import Column, Integer, Float, String
+from .base import Base
 
-@dataclass
-class Vehicle:
-    id: str
-    model: str
-    capacity_m3 : float
-    max_weight_kg : float
+class Vehicle(Base):
+    __tablename__ = "vehicles"
+
+    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
+    car_registration = Column(String, nullable=False)
+    capacity_m3 = Column(Float, nullable=False)
+    max_weight_kg = Column(Float, nullable=True)
+
     
